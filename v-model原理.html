@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-model</title>
+</head>
+<body>
+  <div>
+    <input type="text" placeholder="请输入内容" id="input" >
+    <p id="inputValue"></p>
+  </div>
+  <script>
+    let obj={
+      value:''
+    }
+    Object.defineProperty(obj,'value',{
+      get:function(){
+         return obj.value
+      },
+      set:function(newvalue){
+        document.getElementById('inputValue').innerText=newvalue
+      }
+    })
+    document.getElementById('input').addEventListener('keyup',function(){
+      obj.value=event.target.value
+    })
+  </script>
+</body>
+</html>
